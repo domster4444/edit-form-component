@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <main id="toggle-edit-input-container">
+      <div class="card my-5 p-4">
+        <!-- //* EDIT BUTTON COMPONENT STARTS HERE  -->
+        <div class="form-submit-btn-container">
+          <button id="toggle-disable-btn" class="clickable">Enable Edit</button>
+        </div>
+        <!-- //* EDIT BUTTON COMPONENT ENDS HERE  -->
+      </div>
+    </main>
+
+    <!-- script for TOGGLE DISABLE STATUS OF ALL INPUT FIELDS  -->
+    <script>
+      const educationFormToggleBtn = document.getElementById("toggle-disable-btn");
+      educationFormToggleBtn.addEventListener("click", function () {
+        if (educationFormToggleBtn.innerHTML == "Enable Edit") {
+          educationFormToggleBtn.innerHTML = "Disable Edit";
+          disableForm("education-detail-form");
+        } else {
+          educationFormToggleBtn.innerHTML = "Enable Edit";
+          enableForm("education-detail-form");
+        }
+      });
+      const toggleEditInputContainer = document.getElementById("toggle-edit-input-container");
+
+      educationFormToggleBtn.addEventListener("click", function () {
+        const inputFields = toggleEditInputContainer.getElementsByTagName("input");
+        console.log(" 🅿️");
+        console.log(inputFields);
+        for (var i = 0; i < inputFields.length; i++) {
+          inputFields[i].disabled = !inputFields[i].disabled;
+        }
+
+        //  display block & none for all buttons with class edit-doc-btn
+        const editDocBtns = document.getElementsByClassName("document-edit-view");
+        for (var i = 0; i < editDocBtns.length; i++) {
+          if (editDocBtns[i].style.visibility == "visible") {
+            editDocBtns[i].style.visibility = "hidden";
+          } else {
+            editDocBtns[i].style.visibility = "visible";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

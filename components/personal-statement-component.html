@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <main id="toggle-edit-input-container">
+      <div class="card my-5 p-4">
+        <div class="card-body">
+          <!-- //! ===========================Personal Statement Starts Here -->
+          <section class="document mb-5">
+            <h1 class="dashboard-form-title text-center">
+              Personal Statement
+              <div class="heading-line"></div>
+            </h1>
+
+            <div class="document-view mt-5">
+              <div class="view-col coln-1">
+                <a href="../assets/dummyfiles/signature.pdf" download="Passport Size Photo">Personal Statement</a>
+              </div>
+            </div>
+
+            <div class="document-edit-view">
+              <button class="button-60 edit-doc-btn" role="button">Edit Documents</button>
+
+              <!-- edit document by uploading fields starts here -->
+              <section class="mt-5 mb-5">
+                <div class="two-col-file-container d-none">
+                  <div class="column-block">
+                    <div class="detail-column">
+                      <div class="input-field-block">
+                        <label for=""> Personal Statement </label>
+                        <div class="upload-file-block">
+                          <span class="file-preview"> Drag & Drop your file or &nbsp; <a href="#"> Browse </a> </span>
+                          <div class="file-input-block">
+                            <input class="file-upload" required type="file" disabled />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!-- edit document by uploading fields here -->
+            </div>
+          </section>
+
+          <!-- //! ===========================Personal Statement Ends Here -->
+        </div>
+      </div>
+    </main>
+
+    <!-- script for show file name when uploaded in file input  -->
+    <script src="../assets/script/upload-test-preview.js"></script>
+    <!-- script for edit document button  -->
+  </body>
+</html>

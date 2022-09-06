@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <main id="toggle-edit-input-container">
+      <div class="card my-5 p-4">
+        <div class="card-body">
+          <!-- //! Education Details Component Starts here  -->
+
+          <div class="scooling_info">
+            <h1 class="dashboard-form-title text-center">
+              Education Details
+              <div class="heading-line"></div>
+            </h1>
+
+            <h5>SEE Details:</h5>
+            <table class="mini-table table table-striped">
+              <thead>
+                <tr>
+                  <th>As</th>
+                  <th>School Name</th>
+                  <th>Year</th>
+                  <th>Grade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <input disabled type="text" value="{{ $application->see_name }}" placeholder="test-placeholder" />
+                  </td>
+                  <td>
+                    <input disabled type="text" value="{{ $application->see_school }}" placeholder="test-placeholder" />
+                  </td>
+                  <td>
+                    <input disabled type="text" value="{{ $application->see_year }}" placeholder="test-placeholder" />
+                  </td>
+                  <td>
+                    <input disabled type="text" value="{{ $application->see_grade }}" placeholder="test-placeholder" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="row col-2 mt-3">
+              <label class="form-label col">Institution</label>
+              <div class="form-check col">
+                <input class="form-check-input" type="radio" name="flexRadioDisabled-institutionII" id="flexRadioDisabledII" disabled />
+                <label class="form-check-label" for="flexRadioDisabledII"> Private </label>
+              </div>
+              <div class="form-check col">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDisabled-institutionII"
+                  id="flexRadioCheckedDisabledIII"
+                  checked
+                  disabled
+                />
+                <label class="form-check-label" for="flexRadioCheckedDisabledIII"> Public </label>
+              </div>
+            </div>
+
+            <h5 class="mt-3">NEB Details:</h5>
+            <table class="mini-table table table-striped">
+              <thead>
+                <tr>
+                  <th>As</th>
+                  <th>School Type</th>
+                  <th>Year</th>
+                  <th>Grade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <input type="text" value="{{ $application->neb_name }}" placeholder="test-placeholder" />
+                  </td>
+                  <td>
+                    <input type="text" value="{{ $application->nebschool_type }}" placeholder="test-placeholder" />
+                  </td>
+                  <td>
+                    <input type="text" value="{{ $application->neb_year }}" placeholder="test-placeholder" />
+                  </td>
+                  <td>
+                    <input type="text" value="{{ $application->see_grade }}" placeholder="test-placeholder" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="row col-2 mt-3">
+              <label class="form-label col">Institution</label>
+              <div class="form-check col">
+                <input class="form-check-input" type="radio" name="flexRadioDisabled-institutionIII" id="flexRadioDisabledIV" disabled />
+                <label class="form-check-label" for="flexRadioDisabledIV"> Private </label>
+              </div>
+              <div class="form-check col">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDisabled-institutionIII"
+                  id="flexRadioCheckedDisabledV"
+                  checked
+                  disabled
+                />
+                <label class="form-check-label" for="flexRadioCheckedDisabledV"> Public </label>
+              </div>
+            </div>
+            <!-- =========================declaration and consent section starts here  -->
+          </div>
+
+          <!-- //! Education Details Component Ends here  -->
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

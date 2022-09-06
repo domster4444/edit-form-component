@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <main id="toggle-edit-input-container">
+      <div class="card my-5 p-4">
+        <div class="form-submit-btn-container">
+          <button id="toggle-disable-btn" class="clickable">Enable Edit</button>
+        </div>
+
+        <section class="avatar-section mb-4">
+          <div class="avatar-upload">
+            <div class="avatar-edit">
+              <input type="file" id="imageUpload" accept=".png, .jpg, .jpeg" onchange="previewFile()" />
+              <label id="avatar-icon" for="imageUpload">
+                <i class="bx bx-edit"></i>
+              </label>
+            </div>
+            <div class="avatar-preview">
+              <img id="imagePreview" src="../assets/images/placeholder-avatar.png" />
+            </div>
+          </div>
+        </section>
+
+        <div class="card-body">
+          <div class="personal-info">
+            <h1 class="text-center dashboard-form-title">
+              Personal Information
+
+              <div class="heading-line"></div>
+            </h1>
+            <div class="row">
+              <div class="col">
+                <label for="firstname" class="form-label col mx-1">First Name</label>
+                <input type="text" id="firstname" value="{{ $application->firstname }}" class="form-control col" disabled />
+              </div>
+              <div class="col">
+                <label for="middlename" class="form-label col mx-1">Middle Name</label>
+                <input type="text" id="middlename" value="{{ $application->middlename }}" class="form-control col" disabled />
+              </div>
+              <div class="col">
+                <label for="lastname" class="form-label col mx-1">Last Name</label>
+                <input type="text" id="lastname" value="{{ $application->lastname }}" class="form-control col" disabled />
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col">
+                <label for="" class="form-label col mx-1">Email Address</label>
+                <input type="text" value="{{ $application->email_address }}" class="form-control col" disabled />
+              </div>
+              <div class="col">
+                <label for="" class="form-label col mx-1">Mobile Number</label>
+                <input type="text" value="{{ $application->cell }}" class="form-control col" disabled />
+              </div>
+            </div>
+
+            <div class="row col-2 mt-3">
+              <label class="form-label col">Gender</label>
+              <div class="form-check col">
+                <input class="form-check-input" type="radio" name="flexRadioDisabled-institutionI" id="flexRadioDisabledIV" disabled />
+                <label class="form-check-label" for="flexRadioDisabledIV"> Male </label>
+              </div>
+              <div class="form-check col">
+                <input class="form-check-input" type="radio" name="flexRadioDisabled-institutionI" id="flexRadioCheckedDisabledV" checked disabled />
+                <label class="form-check-label" for="flexRadioCheckedDisabledV"> Female </label>
+              </div>
+            </div>
+
+            <div class="row mb-5">
+              <div class="col">
+                <label for="firstname" class="form-label col mx-1">Province</label>
+                <input type="text" id="firstname" value="{{ $application->province }}" class="form-control col" disabled />
+              </div>
+              <div class="col">
+                <label for="middlename" class="form-label col mx-1">District</label>
+                <input type="text" id="middlename" value="{{ $application->district }}" class="form-control col" disabled />
+              </div>
+              <div class="col">
+                <label for="lastname" class="form-label col mx-1">Municipality</label>
+                <input type="text" id="lastname" value="{{ $application->municipality }}" class="form-control col" disabled />
+              </div>
+            </div>
+          </div>
+          <hr />
+          <h1 class="text-center dashboard-form-title">
+            Guardian's Information
+            <div class="heading-line"></div>
+          </h1>
+          <div class="father-info">
+            <h5>Father's Information</h5>
+
+            <div class="row">
+              <div class="col">
+                <label for="firstname" class="form-label col mx-1">First Name</label>
+                <input type="text" id="firstname" value="{{ $application->father_firstname }}" class="form-control col" disabled />
+              </div>
+              <div class="col">
+                <label for="middlename" class="form-label col mx-1">Middle Name</label>
+                <input type="text" id="middlename" value="{{ $application->father_middlename }}" class="form-control col" disabled />
+              </div>
+              <div class="col">
+                <label for="lastname" class="form-label col mx-1">Last Name</label>
+                <input type="text" id="lastname" value="{{ $application->father_lastname }}" class="form-control col" disabled />
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col">
+                <label for="" class="form-label col mx-1">Email Address</label>
+                <input type="text" value="{{ $application->father_email }}" class="form-control col" disabled />
+              </div>
+              <div class="col">
+                <label for="" class="form-label col mx-1">Mobile Number</label>
+                <input type="text" value="{{ $application->father_cell }}" class="form-control col" disabled />
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col">
+                <label for="firstname" class="form-label col mx-1">Province</label>
+                <input type="text" id="firstname" value="{{ $application->father_province }}" class="form-control col" disabled />
+              </div>
+              <div class="col">
+                <label for="middlename" class="form-label col mx-1">District</label>
+                <input type="text" id="middlename" value="{{ $application->father_district }}" class="form-control col" disabled />
+              </div>
+              <div class="col">
+                <label for="lastname" class="form-label col mx-1">Municipality</label>
+                <input type="text" id="lastname" value="{{ $application->father_municipality }}" class="form-control col" disabled />
+              </div>
+            </div>
+          </div>
+          <div class="mother-info mt-4">
+            <h5>Mother's Information</h5>
+
+            <div class="row">
+              <div class="col">
+                <label for="firstname" class="form-label col mx-1">First Name</label>
+                <input type="text" id="firstname" value="{{ $application->mother_firstname }}" class="form-control col" disabled />
+              </div>
+              <div class="col">
+                <label for="middlename" class="form-label col mx-1">Middle Name</label>
+                <input type="text" id="middlename" value="{{ $application->mother_middlename }}" class="form-control col" disabled />
+              </div>
+              <div class="col">
+                <label for="lastname" class="form-label col mx-1">Last Name</label>
+                <input type="text" id="lastname" value="{{ $application->mother_lastname }}" class="form-control col" disabled />
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col">
+                <label for="" class="form-label col mx-1">Email Address</label>
+                <input type="text" value="{{ $application->mother_email }}" class="form-control col" disabled />
+              </div>
+              <div class="col">
+                <label for="" class="form-label col mx-1">Mobile Number</label>
+                <input type="text" value="{{ $application->mother_cell }}" class="form-control col" disabled />
+              </div>
+            </div>
+
+            <div class="row mt-3 mb-5">
+              <div class="col">
+                <label for="firstname" class="form-label col mx-1">Province</label>
+                <input type="text" id="firstname" value="{{ $application->mother_province }}" class="form-control col" disabled />
+              </div>
+              <div class="col">
+                <label for="middlename" class="form-label col mx-1">District</label>
+                <input type="text" id="middlename" value="{{ $application->mother_district }}" class="form-control col" disabled />
+              </div>
+              <div class="col">
+                <label for="lastname" class="form-label col mx-1">Municipality</label>
+                <input type="text" id="lastname" value="{{ $application->mother_municipality }}" class="form-control col" disabled />
+              </div>
+            </div>
+          </div>
+          <div class="local-info mt-4">
+            <h5>Local Guardian's Information</h5>
+
+            <div class="row">
+              <div class="col">
+                <label for="firstname" class="form-label col mx-1">First Name</label>
+                <input type="text" id="firstname" value="{{ $application->local_firstname }}" class="form-control col" disabled />
+              </div>
+              <div class="col">
+                <label for="middlename" class="form-label col mx-1">Middle Name</label>
+                <input type="text" id="middlename" value="{{ $application->local_middlename }}" class="form-control col" disabled />
+              </div>
+              <div class="col">
+                <label for="lastname" class="form-label col mx-1">Last Name</label>
+                <input type="text" id="lastname" value="{{ $application->local_lastname }}" class="form-control col" disabled />
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col">
+                <label for="" class="form-label col mx-1">Email Address</label>
+                <input type="text" value="{{ $application->local_email }}" class="form-control col" disabled />
+              </div>
+              <div class="col">
+                <label for="" class="form-label col mx-1">Mobile Number</label>
+                <input type="text" value="{{ $application->local_cell }}" class="form-control col" disabled />
+              </div>
+            </div>
+
+            <div class="row mt-3 mb-5">
+              <div class="col">
+                <label for="firstname" class="form-label col mx-1">Province</label>
+                <input type="text" id="firstname" value="{{ $application->local_province }}" class="form-control col" disabled />
+              </div>
+              <div class="col">
+                <label for="middlename" class="form-label col mx-1">District</label>
+                <input type="text" id="middlename" value="{{ $application->local_district }}" class="form-control col" disabled />
+              </div>
+              <div class="col">
+                <label for="lastname" class="form-label col mx-1">Municipality</label>
+                <input type="text" id="lastname" value="{{ $application->local_municipality }}" class="form-control col" disabled />
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div class="scooling_info">
+            <h1 class="dashboard-form-title text-center">
+              Education Details
+              <div class="heading-line"></div>
+            </h1>
+
+            <h5>SEE Details:</h5>
+            <table class="mini-table table table-striped">
+              <thead>
+                <tr>
+                  <th>As</th>
+                  <th>School Name</th>
+                  <th>Year</th>
+                  <th>Grade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <input disabled type="text" value="{{ $application->see_name }}" placeholder="test-placeholder" />
+                  </td>
+                  <td>
+                    <input disabled type="text" value="{{ $application->see_school }}" placeholder="test-placeholder" />
+                  </td>
+                  <td>
+                    <input disabled type="text" value="{{ $application->see_year }}" placeholder="test-placeholder" />
+                  </td>
+                  <td>
+                    <input disabled type="text" value="{{ $application->see_grade }}" placeholder="test-placeholder" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="row col-2 mt-3">
+              <label class="form-label col">Institution</label>
+              <div class="form-check col">
+                <input class="form-check-input" type="radio" name="flexRadioDisabled-institutionII" id="flexRadioDisabledII" disabled />
+                <label class="form-check-label" for="flexRadioDisabledII"> Private </label>
+              </div>
+              <div class="form-check col">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDisabled-institutionII"
+                  id="flexRadioCheckedDisabledIII"
+                  checked
+                  disabled
+                />
+                <label class="form-check-label" for="flexRadioCheckedDisabledIII"> Public </label>
+              </div>
+            </div>
+
+            <h5 class="mt-3">NEB Details:</h5>
+            <table class="mini-table table table-striped">
+              <thead>
+                <tr>
+                  <th>As</th>
+                  <th>School Type</th>
+                  <th>Year</th>
+                  <th>Grade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <input type="text" value="{{ $application->neb_name }}" placeholder="test-placeholder" />
+                  </td>
+                  <td>
+                    <input type="text" value="{{ $application->nebschool_type }}" placeholder="test-placeholder" />
+                  </td>
+                  <td>
+                    <input type="text" value="{{ $application->neb_year }}" placeholder="test-placeholder" />
+                  </td>
+                  <td>
+                    <input type="text" value="{{ $application->see_grade }}" placeholder="test-placeholder" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="row col-2 mt-3">
+              <label class="form-label col">Institution</label>
+              <div class="form-check col">
+                <input class="form-check-input" type="radio" name="flexRadioDisabled-institutionIII" id="flexRadioDisabledIV" disabled />
+                <label class="form-check-label" for="flexRadioDisabledIV"> Private </label>
+              </div>
+              <div class="form-check col">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDisabled-institutionIII"
+                  id="flexRadioCheckedDisabledV"
+                  checked
+                  disabled
+                />
+                <label class="form-check-label" for="flexRadioCheckedDisabledV"> Public </label>
+              </div>
+            </div>
+
+            <!-- =========================academic information section starts here  -->
+            <hr />
+            <div class="academic_info">
+              <h1 class="dashboard-form-title text-center">
+                Academic Information
+                <div class="heading-line"></div>
+              </h1>
+
+              <!-- dynamic table starts here -->
+              <!-- add remove row for table button -->
+              <div class="table-view-btn-container">
+                <!-- <button class="table-view-btn" onclick="printTable('table1')">Log Table Data In Console</button> -->
+                <button class="table-view-btn clickable" onclick="addRow('table1')">
+                  <i class="bx bx-plus"></i>
+                </button>
+                <button class="table-view-btn clickable" onclick="removeRow('table1')">
+                  <i class="bx bx-minus"></i>
+                </button>
+              </div>
+
+              <section class="table-container table-subject-view">
+                <!-- responsive table  -->
+                <table class="table1 table-striped table-bordered table-hover table-condensed">
+                  <thead>
+                    <tr>
+                      <th>
+                        <h6>S.N</h6>
+                      </th>
+                      <th>
+                        <h6>SUBJECTS</h6>
+                      </th>
+                      <th>
+                        <h6>THEORY</h6>
+                      </th>
+                      <th>
+                        <h6>PRACTICAL</h6>
+                      </th>
+                      <th>
+                        <h6>AGGREGATE</h6>
+                      </th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="table-sn-number poppins_400">1</div>
+                      </td>
+                      <td>
+                        <input type="text" name="subject" placeholder="Subject name" />
+                      </td>
+                      <td>
+                        <input type="number" name="theory" placeholder="Theory marks" />
+                      </td>
+                      <td>
+                        <input type="number" name="username" name="practical" placeholder="Practical marks" />
+                      </td>
+                      <td>
+                        <input type="number" name="username" name="aggregate" placeholder="Aggregate marks" />
+                      </td>
+                      <td>
+                        <button class="table-view-btn clickable" onclick="removeIndividualRow('table1',this)">
+                          <i class="bx bx-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </section>
+
+              <div class="table-view-btn-container">
+                <!-- <button class="table-view-btn" onclick="printTable('table1')">Log Table Data In Console</button> -->
+                <button class="table-view-btn clickable" onclick="addRow('table2')">
+                  <i class="bx bx-plus"></i>
+                </button>
+                <button class="table-view-btn clickable" onclick="removeRow('table2')">
+                  <i class="bx bx-minus"></i>
+                </button>
+              </div>
+
+              <section class="table-container table-subject-view">
+                <!-- responsive table  -->
+                <table class="table2 table-striped table-bordered table-hover table-condensed">
+                  <thead>
+                    <tr>
+                      <th>
+                        <h6>S.N</h6>
+                      </th>
+                      <th>
+                        <h6>SUBJECTS</h6>
+                      </th>
+                      <th>
+                        <h6>THEORY</h6>
+                      </th>
+                      <th>
+                        <h6>PRACTICAL</h6>
+                      </th>
+                      <th>
+                        <h6>AGGREGATE</h6>
+                      </th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="table-sn-number poppins_400">1</div>
+                      </td>
+                      <td>
+                        <input type="text" name="subject" placeholder="Subject name" />
+                      </td>
+                      <td>
+                        <input type="number" name="theory" placeholder="Theory marks" />
+                      </td>
+                      <td>
+                        <input type="number" name="username" name="practical" placeholder="Practical marks" />
+                      </td>
+                      <td>
+                        <input type="number" name="username" name="aggregate" placeholder="Aggregate marks" />
+                      </td>
+                      <td>
+                        <button class="table-view-btn clickable" onclick="removeIndividualRow('table2',this)">
+                          <i class="bx bx-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </section>
+            </div>
+
+            <!-- ========================academic information ends here -->
+
+            <!-- =========================documents section starts here  -->
+            <hr />
+            <div class="mb-5">
+              <h1 class="dashboard-form-title text-center">
+                Documents
+                <div class="heading-line"></div>
+              </h1>
+
+              <div class="document-view mt-5">
+                <div class="view-col coln-4">
+                  <a href="../assets/dummyfiles/pp-size-photo.png" download="Passport Size Photo">PP Size Photo</a>
+                </div>
+                <div class="view-col coln-4">
+                  <a href="../assets/dummyfiles/see-certificate.pdf" download="Passport Size Photo">SEE Certificate</a>
+                </div>
+                <div class="view-col coln-4">
+                  <a href="../assets/dummyfiles/see-marksheet.pdf" download="Passport Size Photo">SEE Marksheet</a>
+                </div>
+                <div class="view-col coln-4">
+                  <a href="../assets/dummyfiles/recent-marksheet.pdf" download="Passport Size Photo">Recent Marksheet</a>
+                </div>
+              </div>
+
+              <div class="document-edit-view">
+                <button class="button-60 edit-doc-btn" role="button">Edit Documents</button>
+
+                <!-- edit document by uploading fields starts here -->
+                <section class="mt-5 mb-5">
+                  <div class="two-col-file-container d-none">
+                    <div class="column-block">
+                      <div class="detail-column">
+                        <div class="input-field-block">
+                          <label for=""> PP Size Photo </label>
+
+                          <div class="upload-file-block">
+                            <span class="file-preview"> Drag & Drop your file or &nbsp; <a href="#"> Browse </a> </span>
+                            <div class="file-input-block">
+                              <input class="file-upload" required type="file" disabled />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="input-field-block">
+                          <label class="poppins_400" for=""> SEE Marksheet </label>
+
+                          <div class="upload-file-block">
+                            <span class="poppins_400 file-preview"> Drag & Drop your file or &nbsp; <a href="#"> Browse </a> </span>
+
+                            <div class="file-input-block">
+                              <input class="file-upload" required type="file" disabled />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="detail-column">
+                        <div class="input-field-block">
+                          <label class="poppins_400" for=""> SEE Certificate </label>
+
+                          <div class="upload-file-block">
+                            <span class="poppins_400 file-preview"> Drag & Drop your file or &nbsp; <a href="#"> Browse </a> </span>
+                            <div class="file-input-block">
+                              <input class="file-upload" required type="file" disabled />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="input-field-block">
+                          <label class="poppins_400" for=""> Recent Marksheet </label>
+
+                          <div class="upload-file-block">
+                            <span class="poppins_400 file-preview"> Drag & Drop your file or &nbsp; <a href="#"> Browse </a> </span>
+
+                            <div class="file-input-block">
+                              <input class="file-upload" required type="file" disabled />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <!-- edit document by uploading fields here -->
+              </div>
+            </div>
+
+            <!-- =========================documents information section starts here  -->
+
+            <!-- =========================personal statement section starts here  -->
+            <hr />
+            <div class="document mb-5">
+              <h1 class="dashboard-form-title text-center">
+                Personal Statement
+                <div class="heading-line"></div>
+              </h1>
+
+              <div class="document-view mt-5">
+                <div class="view-col coln-1">
+                  <a href="../assets/dummyfiles/signature.pdf" download="Passport Size Photo">Personal Statement</a>
+                </div>
+              </div>
+
+              <div class="document-edit-view">
+                <button class="button-60 edit-doc-btn" role="button">Edit Documents</button>
+
+                <!-- edit document by uploading fields starts here -->
+                <section class="mt-5 mb-5">
+                  <div class="two-col-file-container d-none">
+                    <div class="column-block">
+                      <div class="detail-column">
+                        <div class="input-field-block">
+                          <label for=""> Personal Statement </label>
+                          <div class="upload-file-block">
+                            <span class="file-preview"> Drag & Drop your file or &nbsp; <a href="#"> Browse </a> </span>
+                            <div class="file-input-block">
+                              <input class="file-upload" required type="file" disabled />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <!-- edit document by uploading fields here -->
+              </div>
+            </div>
+
+            <!-- =========================personal statement information section starts here  -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- script for show file name when uploaded in file input  -->
+    <script src="../assets/script/upload-test-preview.js"></script>
+    <!-- script for edit document button  -->
+    <script>
+      // on clicking .edit-doc-btn toggle display .two-col-file-container
+      const editDocBtn = document.getElementsByClassName("edit-doc-btn");
+      const twoColFileContainer = document.getElementsByClassName("two-col-file-container");
+      for (let i = 0; i < editDocBtn.length; i++) {
+        editDocBtn[i].addEventListener("click", function () {
+          twoColFileContainer[i].classList.toggle("d-none");
+        });
+      }
+
+      // on click .edit-doc-btn toggle inner text
+      const editDocBtnText = document.getElementsByClassName("edit-doc-btn");
+      for (let i = 0; i < editDocBtnText.length; i++) {
+        editDocBtnText[i].addEventListener("click", function () {
+          //  toggle text "edit" & "cancel"   on click
+          if (editDocBtnText[i].innerText === "Edit Documents") {
+            editDocBtnText[i].innerText = "Cancel";
+          } else {
+            editDocBtnText[i].innerText = "Edit Documents";
+          }
+        });
+      }
+    </script>
+
+    <script>
+      //  TABLE FUNCTION
+      // script for add and remove table row function
+      function addRow(tableid) {
+        var table = document.getElementsByClassName(tableid)[0];
+
+        if (table.rows.length >= 11) {
+          throw new Error("Table can only have 10 rows");
+          return false;
+        } else {
+          var row = table.insertRow(table.rows.length);
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          var cell3 = row.insertCell(2);
+          var cell4 = row.insertCell(3);
+          var cell5 = row.insertCell(4);
+
+          cell1.innerHTML = `<div class='table-sn-number poppins_400 '> ${table.rows.length - 1} </div>`;
+
+          cell2.innerHTML = "<input type='text' name='subject' placeholder='Subject name'  />";
+          cell3.innerHTML = "<input type='number' name='theory' placeholder='Theory marks'  />";
+          cell4.innerHTML = "<input type='number' name='practical' placeholder='Practical marks'  />";
+          cell5.innerHTML = "<input type='number' name='aggregate' placeholder='Aggregate marks'  />";
+
+          // insert remove individual row button
+          var cell6 = row.insertCell(5);
+          cell6.innerHTML = `<button class='table-view-btn' onclick='removeIndividualRow("${tableid}", this)'>
+                              <i class='bx bx-trash'></i>
+                            </button>`;
+        }
+      }
+      function removeRow(tableid) {
+        var table = document.getElementsByClassName(tableid)[0];
+        if (table.rows.length > 1) {
+          table.deleteRow(table.rows.length - 1);
+        }
+      }
+
+      // remove individual row function
+      function removeIndividualRow(tableid, row) {
+        var table = document.getElementsByClassName(tableid)[0];
+        table.deleteRow(row.parentNode.parentNode.rowIndex);
+
+        overrideSN(tableid);
+      }
+      // override ascending numbers in sn field of table
+      function overrideSN(tableid) {
+        var table = document.getElementsByClassName(tableid)[0];
+        for (var i = 1; i < table.rows.length; i++) {
+          table.rows[i].cells[0].innerHTML = `<div class='table-sn-number poppins_400 '> ${i} </div>`;
+        }
+      }
+    </script>
+
+    <!-- script for TOGGLE DISABLE STATUS OF ALL INPUT FIELDS  -->
+    <script>
+      const educationFormToggleBtn = document.getElementById("toggle-disable-btn");
+      educationFormToggleBtn.addEventListener("click", function () {
+        if (educationFormToggleBtn.innerHTML == "Enable Edit") {
+          educationFormToggleBtn.innerHTML = "Disable Edit";
+          disableForm("education-detail-form");
+        } else {
+          educationFormToggleBtn.innerHTML = "Enable Edit";
+          enableForm("education-detail-form");
+        }
+      });
+      const toggleEditInputContainer = document.getElementById("toggle-edit-input-container");
+
+      educationFormToggleBtn.addEventListener("click", function () {
+        const inputFields = toggleEditInputContainer.getElementsByTagName("input");
+        console.log(" 🅿️");
+        console.log(inputFields);
+        for (var i = 0; i < inputFields.length; i++) {
+          inputFields[i].disabled = !inputFields[i].disabled;
+        }
+
+        //  display block & none for all buttons with class edit-doc-btn
+        const editDocBtns = document.getElementsByClassName("document-edit-view");
+        for (var i = 0; i < editDocBtns.length; i++) {
+          if (editDocBtns[i].style.visibility == "visible") {
+            editDocBtns[i].style.visibility = "hidden";
+          } else {
+            editDocBtns[i].style.visibility = "visible";
+          }
+        }
+      });
+    </script>
+
+    <!-- script for upload image & preview javascript -->
+
+    <script>
+      function previewFile() {
+        var preview = document.querySelector("img");
+        var file = document.querySelector("input[type=file]").files[0];
+        var reader = new FileReader();
+
+        reader.addEventListener(
+          "load",
+          function () {
+            preview.src = reader.result;
+          },
+          false
+        );
+
+        if (file) {
+          reader.readAsDataURL(file);
+        }
+      }
+    </script>
+
+    <!--  text editor javascript -->
+    <script src="../assets/script/text-editor.js"></script>
+  </body>
+</html>
